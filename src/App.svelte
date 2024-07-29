@@ -34,6 +34,12 @@
           <input type="text" bind:value={state.searchQuery} placeholder="Search products..." class="border p-2 rounded-l" />
           <button on:click={actions.filterProducts} class="bg-white text-black border border-l-0 p-2 rounded-r">Search</button>
         </div>
+
+        <select bind:value={state.sortOrder} on:change={actions.sortProducts} class="border p-2 rounded">
+          <option value="">Sort By Price</option>
+          <option value="asc">Lowest to Highest</option>
+          <opton value="desc">Highest to Lowest</opton>
+        </select>
      
         </div>
       </Route>

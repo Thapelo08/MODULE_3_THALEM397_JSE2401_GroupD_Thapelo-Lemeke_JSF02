@@ -17,37 +17,19 @@
     });
   </script>
   
-  <Navbar />
-  
-  <main class="container mx-auto p-6">
-    <div class="flex justify-between mb-4">
-      <select bind:value={state.selectedCategory} on:change={store.filterProducts} class="border p-2 rounded">
-        <option value="">All Categories</option>
-        {#each state.categories as category}
+  <Router>
+    <Navbar />
+    <main class="container mx-auto p-6">
+      <Route path="/" let:params>
+      <div class="flex justify-between mb-4">
+        <select bind:value={state.selectedCategory} on:change={actions.filterProductions} class="border p-2 rounded">
+          <option value="">All categories</option>
+          {#each state.categories as category}
           <option value={category}>{category}</option>
-        {/each}
-      </select>
-  
-      <div class="flex items-center">
-        <input type="text" bind:value={state.searchQuery} placeholder="Search products..." class="border p-2 rounded-l" />
-        <button on:click={store.filterProducts} class="bg-white text-black border border-l-0 p-2 rounded-r">Search</button>
+          {/each}
+        </select>
       </div>
-  
-      <select bind:value={state.sortOrder} on:change={store.sortProducts} class="border p-2 rounded">
-        <option value="">Sort by Price</option>
-        <option value="asc">Lowest to Highest</option>
-        <option value="desc">Highest to Lowest</option>
-      </select>
-    </div>
-  
-    {#if state.loading}
-      <div class="loading text-center text-2xl">Loading...</div>
-    {:else}
-      <ProductList {products} />
-    {/if}
-  </main>
-  
-  {#if state.showModal}
-    <Modal {product} />
-  {/if}
-  
+      </Route>
+
+    </main>
+  </Router>

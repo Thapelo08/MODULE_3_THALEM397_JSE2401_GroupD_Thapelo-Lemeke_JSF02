@@ -1,7 +1,7 @@
 <script>
     import { Router, Route, Link } from 'svelte-routing'
     import { onMount } from 'svelte';
-    import { store } from './store';
+    import { actions, store } from './store';
     import Navbar from './components/Navbar.svelte';
     import ProductList from './components/ProductList.svelte';
     import Modal from './components/modal.svelte';
@@ -14,6 +14,7 @@
       store.subscribe(value => {
         state = value;
       });
+      actions.init();
     });
   </script>
   
@@ -28,7 +29,13 @@
           <option value={category}>{category}</option>
           {/each}
         </select>
-      </div>
+
+        <div class="flex items-center">
+          <input type="text" bind:value={state.searchQuery} placeholder="Search products..." class="border p-2 rounded-l" />
+          <button on:click={actions.filterProducts} class="bg-white text-black border border-l-0 p-2 rounded-r">Search</button>
+        </div>
+     
+        </div>
       </Route>
 
     </main>

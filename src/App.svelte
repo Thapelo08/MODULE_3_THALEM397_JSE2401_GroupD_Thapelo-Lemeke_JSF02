@@ -1,9 +1,11 @@
 <script>
+    import { Router, Route, Link } from 'svelte-routing'
     import { onMount } from 'svelte';
     import { store } from './store';
     import Navbar from './components/Navbar.svelte';
     import ProductList from './components/ProductList.svelte';
     import Modal from './components/modal.svelte';
+    
     
   
     let state;

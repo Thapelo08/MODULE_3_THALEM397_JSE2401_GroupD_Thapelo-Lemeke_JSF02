@@ -40,9 +40,17 @@
           <option value="asc">Lowest to Highest</option>
           <opton value="desc">Highest to Lowest</opton>
         </select>
-     
-        </div>
-      </Route>
+       </div>
+       
+      {#if state.loading}
+       <div class="loading text-center text-2xl">Loading...</div>
+       {:else}
+       <ProductList {products} />
+       {/if}
+       </Route>
 
+       {#if state.showModal}
+       <Modal {state.modalProduct} />
+       {/if}
     </main>
   </Router>

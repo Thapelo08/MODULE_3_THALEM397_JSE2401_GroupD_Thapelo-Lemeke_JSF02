@@ -1,7 +1,9 @@
 <script>
+// @ts-nocheck
+
     import { Router ,Route } from "svelte-routing";
     import Home from "./pages/Home.svelte";
-    import NavBar from "./components/NavBar.svelte";
+    import NavBar from "./components/Navbar.svelte";
     import ProductPreview from "./pages/ProductPreview.svelte";
   </script>
   
